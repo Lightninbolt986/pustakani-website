@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{name}}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins"
+    />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        font-size: 16px;
+      }
+      .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .w3-half img:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding"
+      style="z-index: 3; width: 300px; font-weight: bold"
+      id="mySidebar"
+    >
+      <br />
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-button w3-hide-large w3-display-topleft"
+        style="width: 100%; font-size: 22px"
+        >Close Menu</a
+      >
+      <div class="w3-container">
+        <h3 class="w3-padding-64">
+          <b>{{name}}</b>
+        </h3>
+      </div>
+      <div class="w3-bar-block">
+        <a
+          href="#"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Home</a
+        >
+        <a
+          href="#showcase"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Showcase</a
+        >
+        <a
+          href="#about"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >About the project</a
+        >
+        <a
+          href="#important"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Why is it important</a
+        >
+        <a
+          href="#founder"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Meet the Founder</a
+        >
+        <a
+          href="#contact"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header
+      class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding"
+    >
+      <a
+        href="javascript:void(0)"
+        class="w3-button w3-red w3-margin-right"
+        onclick="w3_open()"
+        >☰</a
+      >
+      <span>{{name}}</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px">
+      <!-- Header -->
+      <div class="w3-container" style="margin-top: 80px" id="showcase">
+        <h1 class="w3-jumbo">
+          <b>{{name}}</b>
+        </h1>
+        <h1 class="w3-xxxlarge w3-text-red">
+          <b>Showcase.</b>
+        </h1>
+        <hr style="width: 50px; border: 5px solid red" class="w3-round" />
+      </div>
+
+      <!-- Photo grid (modal) -->
+      <div class="w3-row-padding">
+        <div class="w3-half">
+          <img
+            src="/imgs/placeholder.png"
+            style="width: 100%"
+            onclick="onClick(this)"
+            alt="Placeholder image"
+          />
+          <img
+            src="/imgs/placeholder.png"
+            style="width: 100%"
+            onclick="onClick(this)"
+            alt="Placeholder image"
+          />
+          <img
+            src="/imgs/placeholder.png"
+            style="width: 100%"
+            onclick="onClick(this)"
+            alt="Placeholder image"
+          />
+        </div>
+
+        <div class="w3-half">
+          <img
+            src="/imgs/placeholder.png"
+            style="width: 100%"
+            onclick="onClick(this)"
+            alt="Placeholder image"
+          />
+          <img
+            src="/imgs/placeholder.png"
+            style="width: 100%"
+            onclick="onClick(this)"
+            alt="Placeholder image"
+          />
+          <img
+            src="/imgs/placeholder.png"
+            style="width: 100%"
+            onclick="onClick(this)"
+            alt="Placeholder image"
+          />
+        </div>
+      </div>
+
+      <!-- Modal for full size images on click-->
+      <div
+        id="modal01"
+        class="w3-modal w3-black"
+        style="padding-top: 0"
+        onclick="this.style.display='none'"
+      >
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div
+          class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"
+        >
+          <img id="img01" class="w3-image" />
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="w3-container" id="about" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red">
+          <b>About the Project</b>
+        </h1>
+        <hr style="width: 50px; border: 5px solid red" class="w3-round" />
+        <p>
+          {{name}} is an app that can be used to give away old and unwanted
+          academic books to other students who need them. Many books, including
+          NCERT, NCERT Exemplar, and popular reference books such as Lakhmir
+          Singh, RD Sharma and RS Agarwal, can be listed. Books can be easily
+          searched on the basis of their names and even can be filtered by their
+          location on the map. The app is build using React.
+        </p>
+      </div>
+
+      <!-- Important -->
+      <div class="w3-container" id="important" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red">
+          <b>Why is it important</b>
+        </h1>
+        <hr style="width: 50px; border: 5px solid red" class="w3-round" />
+        <p>
+          Every year, when I advanced to a new grade, I had plenty of books
+          which I don’t need anymore. Usually, they were scrapped or left in a
+          pile for a long time due to the lack of known people in need. This
+          project aims to reduce the books turned to scrap and ensure they reach
+          the people in need. Books are unique way of sharing and passing the
+          knowledge and hence this app not only help students to pass on the
+          books but also reduce paper wastage. Let’s make a difference with this
+          change.
+        </p>
+      </div>
+      <!-- Founder -->
+      <div class="w3-container" id="founder" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red">
+          <b>Meet the Founder</b>
+        </h1>
+        <hr style="width: 50px; border: 5px solid red" class="w3-round" />
+        <p>
+          My name is Armaan Raisinghani, and I love programming and coding apps
+          and websites. I want to pursue Computer Science in college. I
+          primarily code in nodeJS, and I also like making bots. As a student of
+          Heritage Xperiential Learning School, I have been taught to chase our
+          dreams passionately and work towards achieving them. Over the last one
+          year I have created a multipurpose discord bot which has gained over
+          10,000 members and have successfully completed four online certified
+          courses. In the school I had actively participated in various MUN
+          exercises and club activities as well.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="w3-container" id="contact" style="margin-top: 75px">
+        <h1 class="w3-xxxlarge w3-text-red">
+          <b>Contact</b>
+        </h1>
+        <hr style="width: 50px; border: 5px solid red" class="w3-round" />
+        <div class="w3-section">
+          <span>Name: Armaan Raisinghani</span>
+        </div>
+        <div class="w3-section">
+          <span>Email: raisinghani.armaan1@gmail.com</span>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div
+      class="w3-light-grey w3-container w3-padding-32"
+      style="margin-top: 75px; padding-right: 58px"
+    ></div>
+    <script src="nodemailer.js"></script>
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+  </body>
+</html>
